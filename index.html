@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - For Kayla ✨</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px;
+        }
+
+        .spotify-container {
+            width: 100%;
+            max-width: 400px;
+            background: #181818;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            border: 1px solid #282828;
+        }
+
+        .header-banner {
+            background: linear-gradient(180deg, #531228 0%, #181818 100%);
+            padding: 20px 15px 10px 15px;
+            text-align: center;
+        }
+
+        /* Slide Galeri Foto (Bisa di-swipe kanan-kiri) */
+        .photo-gallery {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 10px 0;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .photo-gallery::-webkit-scrollbar {
+            display: none;
+        }
+
+        .photo-gallery img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            scroll-snap-align: center;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+            flex-shrink: 0;
+        }
+
+        .swipe-hint {
+            font-size: 0.75rem;
+            color: #ffb6c1;
+            margin-top: 6px;
+            opacity: 0.8;
+        }
+
+        .playlist-info h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #b3b3b3;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        .playlist-info h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        .playlist-info p {
+            font-size: 0.85rem;
+            color: #b3b3b3;
+        }
+
+        /* Track Info */
+        .tracklist {
+            padding: 10px 20px 15px 20px;
+        }
+
+        .track-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+
+        .track-details h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 3px;
+            color: #1ed760; /* Warna hijau khas Spotify */
+        }
+
+        .track-details p {
+            font-size: 0.8rem;
+            color: #b3b3b3;
+        }
+
+        /* Pemutar Audio & Surat */
+        .player-bar {
+            background: #222222;
+            padding: 20px;
+            border-top: 1px solid #2d2d2d;
+            text-align: center;
+        }
+
+        .now-playing-text {
+            font-size: 0.85rem;
+            color: #1ed760;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        audio {
+            width: 100%;
+            height: 40px;
+            outline: none;
+            filter: invert(90%) hue-rotate(180deg);
+        }
+
+        .love-note {
+            margin-top: 15px;
+            font-size: 0.88rem;
+            color: #ffb6c1;
+            font-style: italic;
+            line-height: 1.5;
+            background: rgba(255, 182, 193, 0.05);
+            padding: 14px;
+            border-radius: 10px;
+            border: 1px dashed rgba(255, 182, 193, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="spotify-container">
+        <!-- Banner Utama dengan 3 Foto Kamu -->
+        <div class="header-banner">
+            <div class="photo-gallery">
+                <img src="IMG_1581.jpeg" alt="Foto Kayla 1">
+                <img src="IMG_1591.jpeg" alt="Foto Kayla 2">
+                <img src="IMG_1597.jpeg" alt="Foto Kayla 3">
+            </div>
+            <p class="swipe-hint">👈 Geser untuk lihat foto lainnya 👉</p>
+            
+            <div class="playlist-info">
+                <h4>Special Playlist For Kayla 💖</h4>
+                <h1>Shape of My Heart</h1>
+                <p>Created with ❤️ for My Favorite Person</p>
+            </div>
+        </div>
+
+        <!-- Detail Lagu -->
+        <div class="tracklist">
+            <div class="track-item">
+                <div class="track-details">
+                    <h3>1. Shape of My Heart</h3>
+                    <p>Sting • Our Theme Song</p>
+                </div>
+                <div>🎵</div>
+            </div>
+        </div>
+
+        <!-- Player Audio & Surat Cinta -->
+        <div class="player-bar">
+            <div class="now-playing-text">▶ Now Playing: Shape of My Heart</div>
+            
+            <!-- Memanggil lagu.mp3 yang sudah kamu upload -->
+            <audio id="audioPlayer" controls autoplay loop>
+                <source src="lagu.mp3" type="audio/mpeg">
+                Browser kamu tidak mendukung pemutar audio.
+            </audio>
+
+            <!-- Pesan Romantis -->
+            <div class="love-note">
+                "Untuk Kayla ✨<br><br>
+                Setiap kali denger lagu ini, aku selalu ingat sama kamu. Terima kasih ya sudah jadi alasan tersenyum dan menghiasi hari-hariku.Semangat di tempat barunya,betah betah,dan sehat selalu kay semoga kamu selalu bagahagia sama orang barumuu,love u brayy!"
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Pemutaran otomatis begitu layar disentuh/diklik pertama kali
+        document.body.addEventListener('click', function() {
+            const audio = document.getElementById('audioPlayer');
+            if(audio.paused) {
+                audio.play().catch(e => console.log("Autoplay ditahan browser"));
+            }
+        }, { once: true });
+    </script>
+</body>
+</html>
